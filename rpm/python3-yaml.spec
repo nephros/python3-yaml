@@ -1,6 +1,6 @@
 Name:       python3-yaml
 Summary:    YAML parser and emitter for Python
-Version:    5.3
+Version:    5.3.1
 Release:    1
 License:    MIT
 URL:        http://pyyaml.org/
