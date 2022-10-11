@@ -38,5 +38,5 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 %license LICENSE
-%doc README examples
+%doc README.md examples
 %{python3_sitearch}/*
