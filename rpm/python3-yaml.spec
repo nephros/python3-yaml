@@ -1,3 +1,5 @@
+%bcond_with docs
+
 Name:       python3-yaml
 Summary:    YAML parser and emitter for Python
 Version:    5.4.1.1
@@ -25,9 +27,9 @@ to represent an arbitrary Python object.
 PyYAML is applicable for a broad range of tasks from complex
 configuration files to object serialization and persistance.
 
-%if %{?_with_docs:1}%{!?_with_docs:0}
+%if 0%{with docs}
 %package doc
-Summary: Documentation for %{name}
+Summary: Documentation and examples for %{name}
 Requires: %{name}-%{version}
 BuildArch: noarch
 
@@ -44,7 +46,7 @@ BuildArch: noarch
 %install
 rm -rf %{buildroot}
 %py3_install
-%if %{!?_with_docs:1}%{?_with_docs:0}
+%if 0%{!with docs}
 rm -rf %{buildroot}/%{_docdir}
 %endif
 
@@ -53,7 +55,7 @@ rm -rf %{buildroot}/%{_docdir}
 %license LICENSE
 %{python3_sitearch}/*
 
-%if %{?_with_docs:1}%{!?_with_docs:0}
+%if 0%{with docs}
 %files doc
 %defattr(-,root,root,-)
 %doc README examples
