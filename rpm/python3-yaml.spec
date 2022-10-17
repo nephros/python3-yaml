@@ -25,6 +25,7 @@ to represent an arbitrary Python object.
 PyYAML is applicable for a broad range of tasks from complex
 configuration files to object serialization and persistance.
 
+%if %{?_with_docs:1}%{!?_with_docs:0}
 %package doc
 Summary: Documentation for %{name}
 Requires: %{name}-%{version}
@@ -32,6 +33,7 @@ BuildArch: noarch
 
 %description doc
 %{summary}.
+%endif
 
 %prep
 %setup -q -n %{name}-%{version}/pyyaml
@@ -42,12 +44,17 @@ BuildArch: noarch
 %install
 rm -rf %{buildroot}
 %py3_install
+%if %{!?_with_docs:1}%{?_with_docs:0}
+rm -rf %{buildroot}/%{_docdir}
+%endif
 
 %files
 %defattr(-,root,root,-)
 %license LICENSE
 %{python3_sitearch}/*
 
+%if %{?_with_docs:1}%{!?_with_docs:0}
 %files doc
 %defattr(-,root,root,-)
 %doc README examples
+%endif
