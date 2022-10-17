@@ -27,7 +27,7 @@ to represent an arbitrary Python object.
 PyYAML is applicable for a broad range of tasks from complex
 configuration files to object serialization and persistance.
 
-%if 0%{with docs}
+%if %{with docs}
 %package doc
 Summary: Documentation and examples for %{name}
 Requires: %{name}-%{version}
