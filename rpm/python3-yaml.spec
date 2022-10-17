@@ -25,6 +25,14 @@ to represent an arbitrary Python object.
 PyYAML is applicable for a broad range of tasks from complex
 configuration files to object serialization and persistance.
 
+%package doc
+Summary: Documentation for %{name}
+Requires: %{name}-%{version}
+BuildArch: noarch
+
+%description doc
+%{summary}.
+
 %prep
 %setup -q -n %{name}-%{version}/pyyaml
 
@@ -38,5 +46,8 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 %license LICENSE
-%doc README examples
 %{python3_sitearch}/*
+
+%files doc
+%defattr(-,root,root,-)
+%doc README examples
