@@ -8,7 +8,7 @@ Source0:    %{name}-%{version}.tar.bz2
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 # do not use internal yaml implementation
-BuildRequires:  pkgconfig(yaml-0.1)
+BuildRequires:  pkgconfig(yaml-0.1) >= 0.2.0
 BuildRequires:  python3dist(cython)
 Provides:       PyYAML
 
